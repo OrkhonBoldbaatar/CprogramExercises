@@ -1,0 +1,20 @@
+# Compiled object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+
+# Debug files
+*.dSYM/
+*.su
+
+# Libraries
+*.a
+*.lib
+*.so
+*.dll
+
+# VS Code settings
+.vscode/
