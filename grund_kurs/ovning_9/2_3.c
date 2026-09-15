@@ -7,6 +7,8 @@ int get_max_number();
 void fill_array(int arr[], int size);
 void randomize_array(int arr[], int size);
 void print_array(int arr[], int size);
+int longest_increasing_subsequence(int arr[], int size);
+int set_max(int a, int b);
 
 int main()
 {
@@ -18,6 +20,8 @@ int main()
     fill_array(numbers, max_number);
     randomize_array(numbers, max_number);
     print_array(numbers, max_number);
+    int numbers_in_order = longest_increasing_subsequence(numbers, max_number);
+    printf("\nLangsta foljden ar %d\n", numbers_in_order);
 
     return 0;
 }
@@ -65,9 +69,32 @@ void randomize_array(int arr[], int size)
 
 void print_array(int arr[], int size)
 {
+    int count = 1;
     for (int i = 0; i < size; i++)
     {
         printf("%d, ", arr[i]);
     }
-    printf("\n");
+}
+
+int longest_increasing_subsequence(int arr[], int size)
+{
+    int count = 1, max_count = 1;
+    for (int i = 0; i < size - 1; i++)
+    {
+        if (arr[i] < arr[i + 1])
+        {
+            count++;
+            max_count = set_max(count, max_count);
+        }
+        else
+        {
+            count = 1;
+        }
+    }
+    return max_count;
+}
+
+int set_max(int a, int b)
+{
+    return (a > b) ? a : b;
 }
